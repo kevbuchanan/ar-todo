@@ -3,6 +3,10 @@ require 'rspec/core/rake_task'
 
 require_relative 'config/application'
 
+task "db:path" do
+  puts DB_PATH
+end
+
 desc "create the database"
 task "db:create" do
   puts "Creating file #{DB_PATH} if it doesn't exist..."
