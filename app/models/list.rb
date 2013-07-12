@@ -3,9 +3,6 @@ class List < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def add_task(description)
-    Task.create(lists_id: self.id, description: description, status: 'not complete')
-  end
-
-  def delete_task
+    Task.create(list_id: self.id, description: description, status: 'not complete')
   end
 end
