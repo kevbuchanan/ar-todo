@@ -1,17 +1,12 @@
+require_relative ('../views/task_view.rb')
+require_relative ('../views/list_view.rb')
+
 class ListController
-  def display_tasks(tasks)
-    tasks.each_with_index do |task , index|
-      print "#{index + 1}. "
-      print task.description
-      print " X" if task.status == "complete"
-      print "\n"
-    end
-  end
   
   def list(list_name)
     list = find_list(list_name)
     puts "--#{list_name}--"
-    display_tasks(list.tasks)
+    TaskView.show(list.tasks)
   end
 
   def add(list_name, task_name)
@@ -39,7 +34,8 @@ class ListController
   end
 
   def show_all
-    puts List.all.map(&:name)
+    list_names = List.all.map(&:name)
+    ListView.show(list_names)
   end
 
   def create_list(name)
