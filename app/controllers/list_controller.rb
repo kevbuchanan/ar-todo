@@ -42,4 +42,11 @@ class ListController
     List.create(name: name)
     show_all
   end
+
+  def tag_task(list_name, task_number, tag_name)
+    list = find_list(list_name)
+    task = list.tasks[task_number - 1]
+    task.tag(tag_name)
+    list(list_name)
+  end
 end

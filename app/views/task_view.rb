@@ -5,7 +5,10 @@ class TaskView
       print "["
       task.status == "complete" ? (print "X") : (print " ")
       print "] "
-      print task.description
+      print task.description + ' '
+      task.tags.each do |tag|
+        print '#' + tag.name + ' '
+      end
       print "\n"
     end
   end
